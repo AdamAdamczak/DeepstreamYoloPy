@@ -15,10 +15,6 @@ from inspect import getsource
 
 config_path = "configs/config_infer_primary_yoloV8.txt"
 target_video_path="../../../../samples/streams/sample_720p.h264"
-PGIE_CLASS_ID_VEHICLE = 0
-PGIE_CLASS_ID_BICYCLE = 1
-PGIE_CLASS_ID_PERSON = 2
-PGIE_CLASS_ID_ROADSIGN = 3
 Gst.init(None)
 
 pipeline=Gst.Pipeline()

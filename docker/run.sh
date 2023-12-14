@@ -1,6 +1,6 @@
 xhost +local:root
 
-# BUILD THE IMAGE
+#TODO change output/input maping
 IMAGE="deepstream_yolo_py"
 CONTAINER="aa_DeepstreamYoloPy"
 OUTPUT_PATH="output.mp4"

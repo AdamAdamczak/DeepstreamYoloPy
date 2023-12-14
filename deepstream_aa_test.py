@@ -6,7 +6,6 @@ gi.require_version('Gst', '1.0')
 from gi.repository import GLib, Gst
 from common.is_aarch_64 import is_aarch64
 from common.bus_call import bus_call
-from IPython.display import Video
 import pyds
 from utils.probes import pgie_src_pad_buffer_probe
 from common.bus_call import bus_call

@@ -6,7 +6,6 @@ gi.require_version('Gst', '1.0')
 from gi.repository import GLib, Gst
 from common.is_aarch_64 import is_aarch64
 from common.bus_call import bus_call
-from IPython.display import Video
 import pyds
 from utils.probes import pgie_src_pad_buffer_probe
 from common.bus_call import bus_call
@@ -14,7 +13,9 @@ from inspect import getsource
 
 
 config_path = "configs/config_infer_primary_yoloV8.txt"
-target_video_path="../../../../samples/streams/sample_720p.h264"
+output_video_path = os.environ.get('OUTPUT_PATH',"/output/output.mp4")
+target_video_path = os.environ.get('INPUT_PATH',"../../../../samples/streams/sample_720p.h264")
+
 Gst.init(None)
 
 pipeline=Gst.Pipeline()
@@ -48,7 +49,7 @@ encoder.set_property("bitrate", 4000000)
 mux = Gst.ElementFactory.make("mp4mux", "mux")
 
 filesink=Gst.ElementFactory.make('filesink', 'filesink')
-filesink.set_property('location', 'output.mp4')
+filesink.set_property('location', output_video_path)
 filesink.set_property("sync", 1)
 print('Created elements')
 

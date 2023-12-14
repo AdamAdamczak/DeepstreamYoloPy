@@ -13,7 +13,7 @@ from inspect import getsource
 
 
 config_path = "configs/config_infer_primary_yoloV8.txt"
-output_video_path = os.environ.get('OUTPUT_PATH',"/output/output.mp4")
+output_video_path = os.environ.get('OUTPUT_PATH',"output/output.mp4")
 target_video_path = os.environ.get('INPUT_PATH',"../../../../samples/streams/sample_720p.h264")
 
 Gst.init(None)

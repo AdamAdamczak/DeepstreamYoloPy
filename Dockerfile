@@ -38,11 +38,11 @@ RUN apt update -y && \
 
 
 # Create a subdirectory for cloning     
-RUN mkdir -p /opt/nvidia/deepstream/deepstream-6.3/sources/deepstream_python_apps/apps/DeepstreamYoloPy
+RUN mkdir -p /root/ros2_ws/src
 
 # Clone into the subdirectory
-RUN git clone https://github.com/AdamAdamczak/DeepstreamYoloPy.git /opt/nvidia/deepstream/deepstream-6.3/sources/deepstream_python_apps/apps/DeepstreamYoloPy && \
-    wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1JUHdJwVJkAWcOinGFyDGjanLZBqDEGQ3' -O /opt/nvidia/deepstream/deepstream-6.3/sources/deepstream_python_apps/apps/DeepstreamYoloPy/model/yolov8s-oiv7.onnx
+RUN git clone -b ros2_deepstream https://github.com/AdamAdamczak/DeepstreamYoloPy.git /root/ros2_ws/src && \
+    wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1JUHdJwVJkAWcOinGFyDGjanLZBqDEGQ3' -O /root/ros2_ws/src/DeepstreamYoloPy/model/yolov8s-oiv7.onnx
  
 
-WORKDIR /opt/nvidia/deepstream/deepstream-6.3/sources/deepstream_python_apps/apps/DeepstreamYoloPy
+WORKDIR /root/ros2_ws

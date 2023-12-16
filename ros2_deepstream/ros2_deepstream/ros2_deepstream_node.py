@@ -27,17 +27,15 @@ class Ros2DeepstreamNode(Node):
     def __init__(self):
         super().__init__('ros2_deepstream_node')
         self.ros2_deepstream = Ros2Deepstream()
-        self.param_name = self.declare_parameter('param_name', 456).value
-        self.ros2_deepstream.foo(self.param_name)
 
+    def start_processing(self):
+        self.ros2_deepstream.run_loop()
 
 def main(args=None):
     rclpy.init(args=args)
     node = Ros2DeepstreamNode()
     try:
-        rclpy.spin(node)
-        node.destroy_node()
-        rclpy.shutdown()
+        node.start_processing()
     except KeyboardInterrupt:
         pass
 

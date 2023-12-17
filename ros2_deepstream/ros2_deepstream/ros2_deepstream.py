@@ -22,7 +22,7 @@ from gi.repository import GLib, Gst
 from common.is_aarch_64 import is_aarch64
 from common.bus_call import bus_call
 import pyds
-from utils.probes import pgie_src_pad_buffer_probe
+from ros2_deepstream.utils.probes import pgie_src_pad_buffer_probe
 from common.bus_call import bus_call
 from inspect import getsource
 
@@ -38,7 +38,7 @@ class Ros2Deepstream:
 
     def init_pipeline(self):
         Gst.init(None)
-        self.pipeline=Gst.self.pipeline()
+        self.pipeline=Gst.Pipeline()
         print('Created self.pipeline')
 
         source=Gst.ElementFactory.make("filesrc", "file-source")
@@ -115,7 +115,7 @@ class Ros2Deepstream:
 
         print(getsource(bus_call))
 
-        self.loop=GLib.Mainself.loop()
+        self.loop=GLib.MainLoop()
 
 
         bus=self.pipeline.get_bus()

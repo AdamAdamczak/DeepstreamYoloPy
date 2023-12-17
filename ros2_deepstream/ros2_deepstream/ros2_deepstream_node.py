@@ -26,7 +26,9 @@ class Ros2DeepstreamNode(Node):
 
     def __init__(self):
         super().__init__('ros2_deepstream_node')
-        self.ros2_deepstream = Ros2Deepstream()
+        self.ros2_deepstream = Ros2Deepstream(target_video_path='/opt/nvidia/deepstream/deepstream-6.3/samples/streams/sample_720p.h264',
+                                              output_video_path='output.mp4',
+                                              config_path='/root/ros2_ws/src/DeepstreamYoloPy/ros2_deepstream/config/config_infer_primary_yoloV8.txt')
 
     def start_processing(self):
         self.ros2_deepstream.run_loop()
